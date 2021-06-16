@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [movies, setMovies] = useState([]);
+
+  const movieResquest = async () => {
+    const key = 'http://www.omdbapi.com/?i=tt3896198&apikey=b46dc190';
+
+    const response = await fetch(key);
+    const responseJson = await response.json();
+
+    console.log(responseJson);
+    setMovies(responseJson.Search);
+  };
+
+  useEffect(() => {
+    movieResquest();
+  }, []);
+
+  return <div className="App">yo</div>;
 }
 
 export default App;
