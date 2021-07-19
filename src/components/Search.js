@@ -5,7 +5,7 @@ const Search = (props) => {
     <div>
       <input
         type="text"
-        value={props.value}
+        value={props.input}
         onChange={(event) => props.newSearch(event.target.value)}
       />
     </div>

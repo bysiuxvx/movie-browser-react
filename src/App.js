@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       yo
-      <Search movieSearch newSearch={setMovieSearch} />
+      <Search input={movieSearch} newSearch={setMovieSearch} />
       <MovieList movies={movies} />
     </div>
   );
