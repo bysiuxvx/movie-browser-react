@@ -1,21 +1,23 @@
 import React from 'react';
+import { MdCancel } from 'react-icons/md';
 
 const Modal = (props) => {
   const { modalDetails, setMovieModal } = props;
 
   const style = {
     background: {
-      backgroundColor: '#1f1f1f',
+      backgroundColor: 'rgb(31, 31, 31, .93)',
       position: 'absolute',
       height: '100%',
       width: '100%',
       zIndex: '10',
       top: '0',
       left: '0',
+      cursor: 'pointer',
     },
     modalContainer: {
       width: 650,
-      height: 750,
+      height: 800,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -27,7 +29,8 @@ const Modal = (props) => {
       top: '50%',
       transform: 'translate(-50%, -50%)',
       cursor: 'default',
-      borderRadius: '35px',
+      borderRadius: 35,
+      borderTopRightRadius: 22,
     },
     secondaryTextContainer: {
       alignItems: 'left',
@@ -48,20 +51,28 @@ const Modal = (props) => {
       margin: '0 0 10px 0',
       textAlign: 'left',
     },
+
+    closeButton: {
+      position: 'absolute',
+      color: '#1f1f1f',
+      zIndex: 20,
+      top: 1,
+      right: 1,
+      fontSize: 40,
+      cursor: 'pointer',
+    },
   };
 
   return (
     <>
       {modalDetails && (
-        <div
-          style={style.background}
-          onClick={() => {
-            const resetModal = () => {
-              setMovieModal('');
-            };
-            resetModal();
-          }}>
+        <>
+          <div style={style.background} onClick={() => setMovieModal('')} />
           <div style={style.modalContainer}>
+            <MdCancel
+              style={style.closeButton}
+              onClick={() => setMovieModal('')}
+            />
             <h4 style={style.textMain}>{modalDetails.Title}</h4>
             <img
               src={modalDetails.Poster}
@@ -83,7 +94,7 @@ const Modal = (props) => {
               </p>
             ))}
           </div>
-        </div>
+        </>
       )}
     </>
   );

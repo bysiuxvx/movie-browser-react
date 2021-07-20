@@ -15,7 +15,7 @@ const MovieList = (props) => {
   const { movies, getModalDetails } = props;
 
   return (
-    <div className="list-container" style={style}>
+    <div className="list-container" style={movies.length > 0 ? style : null}>
       {movies.map((movie) => (
         <Movie movie={movie} getModalDetails={getModalDetails} />
       ))}

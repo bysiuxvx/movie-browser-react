@@ -6,24 +6,14 @@ import '../src/App.css';
 
 const style = {
   body: {
-    modalInactive: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: '#1f1f1f',
-    },
-    modalActive: {
-      cursor: 'pointer',
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: '#1f1f1f',
-      position: 'relative',
-      zIndex: '0',
-    },
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: '#1f1f1f',
   },
 };
 
@@ -55,9 +45,7 @@ const App = () => {
   }, [movieSearch]);
 
   return (
-    <div
-      className="App"
-      style={movieModal ? style.body.modalActive : style.body.modalInactive}>
+    <div className="App" style={style.body}>
       <Search input={movieSearch} newSearch={setMovieSearch} />
       <MovieList movies={movies} getModalDetails={setMovieModal} />
       <Modal modalDetails={movieModal} setMovieModal={setMovieModal} />
