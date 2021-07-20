@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Search from './components/Search';
 import MovieList from './components/MovieList';
 import Modal from './components/Modal';
+import '../src/App.css';
 
 const style = {
   body: {

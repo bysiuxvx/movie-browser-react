@@ -1,8 +1,8 @@
 import React from 'react';
 
 const style = {
-  container: {
-    height: 325,
+  movieBody: {
+    height: 350,
     width: 'auto',
     margin: '20px',
     display: 'flex',
@@ -13,6 +13,10 @@ const style = {
     cursor: 'pointer',
   },
   img: { height: 'auto', maxWidth: 150 },
+  textContainer: {},
+  text: {
+    margin: '10px 10px 0 10px',
+  },
 };
 
 const Movie = (props) => {
@@ -34,12 +38,15 @@ const Movie = (props) => {
 
   return (
     <div
-      style={style.container}
+      style={style.movieBody}
       key={movie.Title}
       className="movie-element"
       onClick={() => getMovieDetails(movie.imdbID)}>
       <img style={style.img} src={movie.Poster} />
-      <h5>{movie.Title}</h5>
+      <div style={style.textContainer}>
+        <h4 style={style.text}>{movie.Title}</h4>
+        <p style={style.text}>{movie.Year}</p>
+      </div>
     </div>
   );
 };
