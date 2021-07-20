@@ -19,7 +19,7 @@ const Movie = (props) => {
 
   const getMovieDetails = async () => {
     try {
-      const key = `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=b46dc190`;
+      const key = `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=b46dc190`;
       const response = await fetch(key);
       const responseJson = await response.json();
       console.log(responseJson);
