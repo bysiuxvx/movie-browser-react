@@ -11,7 +11,7 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    width: '100%',
+    width: '100vw',
     height: '100vh',
   },
 };

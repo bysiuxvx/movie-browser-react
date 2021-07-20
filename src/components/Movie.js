@@ -12,10 +12,11 @@ const style = {
     border: '1px solid black',
     cursor: 'pointer',
   },
-  img: { height: 'auto', maxWidth: 150 },
-  textContainer: {},
+  img: { height: 'auto', maxWidth: 150, margin: '0 10px' },
+  textContainer: { maxWidth: 200 },
   text: {
     margin: '10px 10px 0 10px',
+    wordWrap: 'new-line',
   },
 };
 
@@ -42,9 +43,13 @@ const Movie = (props) => {
       key={movie.Title}
       className="movie-element"
       onClick={() => getMovieDetails(movie.imdbID)}>
-      <img style={style.img} src={movie.Poster} />
+      <img
+        style={style.img}
+        src={movie.Poster}
+        alt={`${movie.Title} poster unavailable`}
+      />
       <div style={style.textContainer}>
-        <h4 style={style.text}>{movie.Title}</h4>
+        <h5 style={style.text}>{movie.Title}</h5>
         <p style={style.text}>{movie.Year}</p>
       </div>
     </div>

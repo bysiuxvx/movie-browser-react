@@ -4,12 +4,12 @@ import Movie from './Movie';
 const style = {
   modalInactive: {
     height: '80vh',
-    width: '75vw',
+    maxWidth: 'auto',
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    aligntItems: 'center',
+    alignContent: 'center',
   },
   modalActive: { display: 'none' },
 };
@@ -21,10 +21,9 @@ const MovieList = (props) => {
     <div
       className="list-container"
       style={modalDetails ? style.modalActive : style.modalInactive}>
-      {movies &&
-        movies.map((movie) => (
-          <Movie movie={movie} getModalDetails={getModalDetails} />
-        ))}
+      {movies.map((movie) => (
+        <Movie movie={movie} getModalDetails={getModalDetails} />
+      ))}
     </div>
   );
 };
