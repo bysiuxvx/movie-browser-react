@@ -57,24 +57,10 @@ const App = () => {
   return (
     <div
       className="App"
-      style={movieModal ? style.body.modalActive : style.body.modalInactive}
-      onClick={() => {
-        const resetModal = () => {
-          setMovieModal('');
-        };
-        resetModal();
-      }}>
-      <Search
-        input={movieSearch}
-        newSearch={setMovieSearch}
-        modalDetails={movieModal}
-      />
-      <MovieList
-        movies={movies}
-        modalDetails={movieModal}
-        getModalDetails={setMovieModal}
-      />
-      <Modal modalDetails={movieModal} />
+      style={movieModal ? style.body.modalActive : style.body.modalInactive}>
+      <Search input={movieSearch} newSearch={setMovieSearch} />
+      <MovieList movies={movies} getModalDetails={setMovieModal} />
+      <Modal modalDetails={movieModal} setMovieModal={setMovieModal} />
     </div>
   );
 };

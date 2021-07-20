@@ -1,10 +1,19 @@
 import React from 'react';
 
 const Modal = (props) => {
-  const { modalDetails } = props;
+  const { modalDetails, setMovieModal } = props;
 
   const style = {
-    body: {
+    background: {
+      backgroundColor: '#1f1f1f',
+      position: 'absolute',
+      height: '100%',
+      width: '100%',
+      zIndex: '10',
+      top: '0',
+      left: '0',
+    },
+    modalContainer: {
       width: 650,
       height: 750,
       display: 'flex',
@@ -44,27 +53,36 @@ const Modal = (props) => {
   return (
     <>
       {modalDetails && (
-        <div div style={style.body}>
-          <h4 style={style.textMain}>{modalDetails.Title}</h4>
-          <img
-            src={modalDetails.Poster}
-            alt={`${modalDetails.Title} poster unavailable`}
-            style={style.img}
-          />
-          <div style={style.secondaryTextContainer}>
-            <p style={style.textSecondary}>
-              <strong>Genre:</strong> {modalDetails.Genre}
-            </p>
-            <p style={style.textSecondary}>
-              <strong>Director:</strong> {modalDetails.Director}
-            </p>
+        <div
+          style={style.background}
+          onClick={() => {
+            const resetModal = () => {
+              setMovieModal('');
+            };
+            resetModal();
+          }}>
+          <div style={style.modalContainer}>
+            <h4 style={style.textMain}>{modalDetails.Title}</h4>
+            <img
+              src={modalDetails.Poster}
+              alt={`${modalDetails.Title} poster unavailable`}
+              style={style.img}
+            />
+            <div style={style.secondaryTextContainer}>
+              <p style={style.textSecondary}>
+                <strong>Genre:</strong> {modalDetails.Genre}
+              </p>
+              <p style={style.textSecondary}>
+                <strong>Director:</strong> {modalDetails.Director}
+              </p>
+            </div>
+            <p style={style.textMain}>{modalDetails.Plot}</p>
+            {modalDetails.Ratings.map((rating) => (
+              <p>
+                <strong>{rating.Source}:</strong> {rating.Value}
+              </p>
+            ))}
           </div>
-          <p style={style.textMain}>{modalDetails.Plot}</p>
-          {modalDetails.Ratings.map((rating) => (
-            <p>
-              <strong>{rating.Source}:</strong> {rating.Value}
-            </p>
-          ))}
         </div>
       )}
     </>
