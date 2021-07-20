@@ -11,6 +11,8 @@ const style = {
     alignItems: 'center',
     border: '1px solid black',
     cursor: 'pointer',
+    backgroundColor: '#E8D9D6',
+    borderRadius: '10px',
   },
   img: { height: 'auto', maxWidth: 150, margin: '0 10px' },
   textContainer: { maxWidth: 200 },
@@ -43,11 +45,7 @@ const Movie = (props) => {
       key={movie.Title}
       className="movie-element"
       onClick={() => getMovieDetails(movie.imdbID)}>
-      <img
-        style={style.img}
-        src={movie.Poster}
-        alt={`${movie.Title} poster unavailable`}
-      />
+      <img style={style.img} src={movie.Poster} alt={`poster unavailable`} />
       <div style={style.textContainer}>
         <h5 style={style.text}>{movie.Title}</h5>
         <p style={style.text}>{movie.Year}</p>

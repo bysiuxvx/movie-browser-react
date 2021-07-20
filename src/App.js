@@ -6,13 +6,24 @@ import '../src/App.css';
 
 const style = {
   body: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    width: '100vw',
-    height: '100vh',
+    modalInactive: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: '#1f1f1f',
+    },
+    modalActive: {
+      cursor: 'pointer',
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: '#1f1f1f',
+      position: 'relative',
+      zIndex: '0',
+    },
   },
 };
 
@@ -46,7 +57,7 @@ const App = () => {
   return (
     <div
       className="App"
-      style={style.body}
+      style={movieModal ? style.body.modalActive : style.body.modalInactive}
       onClick={() => {
         const resetModal = () => {
           setMovieModal('');

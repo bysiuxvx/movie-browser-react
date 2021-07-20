@@ -8,6 +8,9 @@ const style = {
     margin: '50px 0',
     fontSize: 23,
     textAlign: 'center',
+    backgroundColor: '#E8D9D6',
+    borderRadius: '25px',
+    border: 'none',
   },
   modalActive: { display: 'none' },
 };
