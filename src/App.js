@@ -20,7 +20,7 @@ const App = () => {
 
   const movieResquest = async (movieSearch) => {
     try {
-      const key = `http://www.omdbapi.com/?s=${movieSearch}&apikey=b46dc190`;
+      const key = `https://www.omdbapi.com/?s=${movieSearch}&apikey=b46dc190`;
 
       const response = await fetch(key);
       const responseJson = await response.json();
