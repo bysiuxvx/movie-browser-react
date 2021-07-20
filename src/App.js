@@ -10,6 +10,7 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
+    width: '100%',
   },
 };
 

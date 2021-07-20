@@ -2,16 +2,17 @@ import React from 'react';
 
 const style = {
   container: {
-    height: 350,
+    height: 325,
     width: 'auto',
-    margin: '20px 20px 0 20px',
+    margin: '20px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '2px solid black',
+    border: '1px solid black',
+    cursor: 'pointer',
   },
-  img: { height: 'auto', maxWidth: 180 },
+  img: { height: 'auto', maxWidth: 150 },
 };
 
 const Movie = (props) => {
