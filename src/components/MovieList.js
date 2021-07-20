@@ -20,8 +20,7 @@ const MovieList = (props) => {
   return (
     <div
       className="list-container"
-      // style={modalDetails ? style.modalInactive : style.modalActive}
-      style={style.modalInactive}>
+      style={modalDetails ? style.modalActive : style.modalInactive}>
       {movies &&
         movies.map((movie) => (
           <Movie movie={movie} getModalDetails={getModalDetails} />

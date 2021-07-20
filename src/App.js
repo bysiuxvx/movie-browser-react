@@ -12,6 +12,7 @@ const style = {
     alignItems: 'center',
     textAlign: 'center',
     width: '100%',
+    height: '100vh',
   },
 };
 
@@ -52,7 +53,11 @@ const App = () => {
         };
         resetModal();
       }}>
-      <Search input={movieSearch} newSearch={setMovieSearch} />
+      <Search
+        input={movieSearch}
+        newSearch={setMovieSearch}
+        modalDetails={movieModal}
+      />
       <MovieList
         movies={movies}
         modalDetails={movieModal}
