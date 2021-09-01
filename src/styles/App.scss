@@ -1,0 +1,143 @@
+@use "colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.App {
+  display: "flex";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$main;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    width: auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    input {
+      height: 50px;
+      width: 400px;
+      outline: none;
+      font-size: 23px;
+      text-align: center;
+      background-color: colors.$secondary;
+      border-radius: 25px;
+      border: none;
+    }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+      color: colors.$main;
+    }
+  }
+}
+
+.list-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  .movie-element {
+    height: 350px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: colors.$secondary;
+    border-radius: 10px;
+    img {
+      max-width: 150px;
+      margin: 0 10px 15px 10px;
+    }
+    div {
+      max-width: 200px;
+      h5,
+      p {
+        margin: 0 10px 15px 10px;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+.modal-background {
+  background-color: colors.$modalBgc;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.modal-container {
+  width: 650px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: colors.$secondary;
+  z-index: 20;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 35px;
+  border-top-right-radius: 22px;
+  .modal-close {
+    position: absolute;
+    color: colors.$main;
+    z-index: 20;
+    top: 1%;
+    right: 1%;
+    font-size: 40px;
+    cursor: pointer;
+  }
+  h4,
+  p {
+    margin: 0 45px 15px 45px;
+    text-align: justify;
+  }
+  img {
+    max-width: 100%;
+    margin: 0 15px 20px 15px;
+    border: 1px solid black;
+  }
+  .favorite-button {
+    position: absolute;
+    bottom: 65px;
+    right: 70px;
+    font-size: 30px;
+  }
+  div {
+    align-items: left;
+    width: 100%;
+    padding: 0 45px 0 45px;
+    p {
+      margin: 0 0 10px 0;
+      text-align: left;
+    }
+  }
+}

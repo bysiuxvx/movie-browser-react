@@ -1,25 +1,22 @@
-import React from 'react';
-import Movie from './Movie';
-
-const style = {
-  height: '80vh',
-  maxWidth: 'auto',
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-  alignContent: 'center',
-};
+import React from "react";
+import Movie from "./Movie";
+import { useSelector } from "react-redux";
 
 const MovieList = (props) => {
-  const { movies, getModalDetails } = props;
+  const { getModalDetails } = props;
+
+  const { movieList } = useSelector((state) => state.movieList);
 
   return (
-    <div className="list-container" style={movies.length > 0 ? style : null}>
-      {movies.map((movie) => (
-        <Movie movie={movie} getModalDetails={getModalDetails} />
-      ))}
-    </div>
+    <>
+      {movieList.length > 0 && (
+        <div className="list-container">
+          {movieList.map((movie) => (
+            <Movie movie={movie} getModalDetails={getModalDetails} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
