@@ -9,7 +9,7 @@ This is a simple React movie browser project
 
 ## Technologies used
 
-- Reac.JS
+- React.JS
 - Redux with Redux-toolkit
 - SCSS
 - react-icons
