@@ -6,15 +6,21 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+html {
+  overflow: hidden;
+  background-color: colors.$main;
+}
 
 .App {
-  display: "flex";
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   width: 100vw;
   height: 100vh;
   background-color: colors.$main;
+  transition: 0.7s;
 }
 
 .search-container {
@@ -43,6 +49,11 @@
       font-size: 30px;
       cursor: pointer;
       color: colors.$main;
+      transition: 0.5s;
+      &:hover {
+        transform: rotate(-180deg);
+        color: colors.$btnHover;
+      }
     }
   }
 }
@@ -66,8 +77,14 @@
     cursor: pointer;
     background-color: colors.$secondary;
     border-radius: 10px;
+    transition: 0.2s;
+    overflow: hidden;
+    &:hover {
+      transform: translate(0, -10px);
+    }
     img {
       max-width: 150px;
+      max-height: 255px;
       margin: 0 10px 15px 10px;
     }
     div {
@@ -76,6 +93,7 @@
       p {
         margin: 0 10px 15px 10px;
         word-wrap: break-word;
+        font-size: 15px;
       }
     }
   }
@@ -106,6 +124,8 @@
   transform: translate(-50%, -50%);
   border-radius: 35px;
   border-top-right-radius: 22px;
+  transition: 0.5;
+  animation: 0.5s ease-out modal;
   .modal-close {
     position: absolute;
     color: colors.$main;
@@ -114,6 +134,11 @@
     right: 1%;
     font-size: 40px;
     cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      transform: rotate(-180deg);
+      color: colors.$btnHover;
+    }
   }
   h4,
   p {
@@ -130,6 +155,11 @@
     bottom: 65px;
     right: 70px;
     font-size: 30px;
+    cursor: pointer;
+    color: colors.$btnHover;
+    &:hover {
+      animation: 0.7s linear shake;
+    }
   }
   div {
     align-items: left;
@@ -139,5 +169,50 @@
       margin: 0 0 10px 0;
       text-align: left;
     }
+  }
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
   }
 }
